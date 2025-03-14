@@ -1,0 +1,8 @@
+*.suo
+*.user
+*.sln.docstates
+*.sln
+bin/
+obj/
+.vs/
+assemblies/*.dll
