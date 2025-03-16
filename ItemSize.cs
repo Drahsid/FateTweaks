@@ -12,15 +12,21 @@ static class ItemSize
     [HarmonyPostfix]
     static void PostfixItemConstructor(Item __instance)
     {
-        __instance.slotsTall = 1;
-        __instance.slotsWide = 1;
+        if (PluginConfig.ItemSizeOverrideEnabled.Value)
+        {
+            __instance.slotsTall = PluginConfig.ItemSizeOverrideTall.Value;
+            __instance.slotsWide = PluginConfig.ItemSizeOverrideWide.Value;
+        }
     }
 
     [HarmonyPostfix]
     [HarmonyPatch("SetSprite")]
     static void PostfixItemSetSprite(Item __instance)
     {
-        __instance.slotsTall = 1;
-        __instance.slotsWide = 1;
+        if (PluginConfig.ItemSizeOverrideEnabled.Value)
+        {
+            __instance.slotsTall = PluginConfig.ItemSizeOverrideTall.Value;
+            __instance.slotsWide = PluginConfig.ItemSizeOverrideWide.Value;
+        }
     }
 }
