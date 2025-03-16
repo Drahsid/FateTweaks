@@ -19,5 +19,6 @@ public class Plugin : BaseUnityPlugin
 
         PluginConfig.Initialize(Config);
         harmony.PatchAll(typeof(Fishing));
+        harmony.PatchAll(typeof(ItemSize));
     }
 }

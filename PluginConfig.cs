@@ -9,6 +9,8 @@ static class PluginConfig
     public static ConfigEntry<float> FishingSuccessMinChance;
     public static ConfigEntry<float> FishingSuccessMaxChance;
 
+    public static ConfigEntry<bool> ItsemSizeOverrideEnabled;
+
     private static ConfigFile _config;
 
     public static void Initialize(ConfigFile config)
@@ -33,5 +35,10 @@ static class PluginConfig
             "FishingSuccessMaxChance",
             1.0f,
             "Minimum value of the dice roll which determines your chance to succeed in reeling in a fish. If you want to always succeed, set this to 0 and the max value to 0. Default is 1.0");
+
+        ItsemSizeOverrideEnabled = config.Bind("ItemSize",
+            "Enabled",
+            false,
+            "When enabled, all items are 1x1.");
     }
 }
