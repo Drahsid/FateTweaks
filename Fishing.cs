@@ -17,7 +17,7 @@ static class Fishing
 
     [HarmonyPrefix]
     [HarmonyPatch("FishingUpdate")]
-    static bool PrefixFishingUpdate(ref IEnumerator __result, FishingSpotInteractable __instance, Character owner)
+    static bool Prefix__FishingSpotInteractable__FishingUpdate(ref IEnumerator __result, FishingSpotInteractable __instance, Character owner)
     {
         Plugin.Logger.LogInfo("FishingUpdate is being called!");
         if (PluginConfig.FishingRestoreLogicEnabled.Value)

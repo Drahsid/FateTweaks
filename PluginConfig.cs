@@ -13,6 +13,10 @@ static class PluginConfig
     public static ConfigEntry<int> ItemSizeOverrideTall;
     public static ConfigEntry<int> ItemSizeOverrideWide;
 
+    public static ConfigEntry<float> ExperienceMultiplier;
+    public static ConfigEntry<float> GoldMultiplier;
+    public static ConfigEntry<float> FameMultiplier;
+
     private static ConfigFile _config;
 
     public static void Initialize(ConfigFile config)
@@ -52,5 +56,20 @@ static class PluginConfig
             "Wide",
             1,
             "Width of items within inventories when ItemSize override is enabled.");
+
+        ExperienceMultiplier = config.Bind("Stats",
+            "ExperienceMultiplier",
+            1.0f,
+            "The experience received is multiplied by this value.");
+
+        GoldMultiplier = config.Bind("Stats",
+            "GoldMultiplier",
+            1.0f,
+            "The gold received from gold piles is multiplied by this value.");
+
+        FameMultiplier = config.Bind("Stats",
+            "FameMultiplier",
+            1.0f,
+            "The fame received is multiplied by this value.");
     }
 }
