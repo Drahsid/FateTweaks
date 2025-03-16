@@ -41,6 +41,16 @@ static class PluginConfig
         ItemSizeOverrideEnabled = config.Bind("ItemSize",
             "Enabled",
             false,
-            "When enabled, all items are 1x1.");
+            "When enabled, all items are changes to be as tall and wide as defined in the following values.");
+
+        ItemSizeOverrideTall = config.Bind("ItemSize",
+            "Tall",
+            1,
+            "Height of items within inventories when ItemSize override is enabled.");
+
+        ItemSizeOverrideWide = config.Bind("ItemSize",
+            "Wide",
+            1,
+            "Width of items within inventories when ItemSize override is enabled.");
     }
 }
