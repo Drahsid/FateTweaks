@@ -1,14 +1,12 @@
 ﻿using HarmonyLib;
 using System;
 using Tableflip;
-using UnityEngine;
 
 namespace FateTweaks;
 
 static class Stats
 {
-    [HarmonyPatch(typeof(Character))]
-    [HarmonyPatch("AwardExperience")]
+    [HarmonyPatch(typeof(Character), nameof(Character.AwardExperience))]
     [HarmonyPrefix]
     static bool Prefix__Character__AwardExperience(Character __instance, ref int award, ref bool fromMaster, ref bool isLoadSave)
     {
@@ -20,8 +18,7 @@ static class Stats
         return true;
     }
 
-    [HarmonyPatch(typeof(Character))]
-    [HarmonyPatch("AwardFame")]
+    [HarmonyPatch(typeof(Character), nameof(Character.AwardFame))]
     [HarmonyPrefix]
     static bool Prefix__Character__AwardFame(Character __instance, ref uint fame)
     {
@@ -34,8 +31,7 @@ static class Stats
     }
 
     // bad for shops
-    /*[HarmonyPatch(typeof(PlayerStatus))]
-    [HarmonyPatch("AddGold")]
+    /*[HarmonyPatch(typeof(PlayerStatus), nameof(PlayerStatus.AddGold))]
     [HarmonyPrefix]
     static bool PrefixAddGold(PlayerStatus __instance, ref uint amount)
     {
@@ -47,8 +43,7 @@ static class Stats
         return true;
     }*/
 
-    [HarmonyPatch(typeof(GoldPileTrigger))]
-    [HarmonyPatch("Init")]
+    [HarmonyPatch(typeof(GoldPileTrigger), nameof(GoldPileTrigger.Init))]
     [HarmonyPrefix]
     static bool Prefix__GoldPileTrigger__Init(GoldPileTrigger __instance, ref int totalGold)
     {
